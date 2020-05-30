@@ -21,15 +21,22 @@
   },
   "name": "continuous-test-code-coverage-guide",
   "scripts": {
-    "start": "mocha",
-    "test": "mocha test --reporter mocha-junit-reporter"
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
   },
   ...
-  "junit": {
+  "jest": {
     "coverageReporters": [
-      "text",
-      "cobertura"
-    ]
+      "text"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ],
     ...
+  },
+  "jest-junit": {
+    "output": "output/coverage/junit/junit.xml",
+    "usePathForSuiteName": "true"
   }
 }
