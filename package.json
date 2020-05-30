@@ -19,7 +19,17 @@
     "gulp-istanbul": "^1.1.3", 
     "nyc": "^12.0.2" 
   },
+  "name": "continuous-test-code-coverage-guide",
   "scripts": {
-    "build": "nyc --reporter=cobertura --reporter=html ./node_modules/.bin/mocha tests/**/*.js --reporter mocha-junit-reporter --reporter-options mochaFile=./TEST-RESULTS.xml"
+    "start": "webpack",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  ...
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "cobertura"
+    ]
+    ...
   }
 }
